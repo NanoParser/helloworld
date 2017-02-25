@@ -6,8 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "fabpot/goutte": "v3.2.1",
+        "jonnyw/php-phantomjs": "v4.5.1",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "sunra/php-simple-html-dom-parser": "v1.5.2",
+        "symphony/symphony": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -36,15 +40,18 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+          "PhantomInstaller\\Installer::installPhantomJS"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+            "php artisan optimize",
+          "PhantomInstaller\\Installer::installPhantomJS"
         ]
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+      "bin-dir": "bin"
     }
 }
